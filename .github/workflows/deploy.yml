@@ -57,10 +57,10 @@ jobs:
             -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
             ./node_modules/ "$DEST/node_modules/"
 
-          # metadata + seed + public extras
+          # metadata + seed (note: seed/ WITHOUT trailing slash keeps the directory)
           rsync -az --no-owner --no-group \
             -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
-            ./package.json ./package-lock.json ./seed/ "$DEST/"
+            ./package.json ./package-lock.json ./seed "$DEST/"
 
       - name: Restart service & reload Nginx
         run: |
