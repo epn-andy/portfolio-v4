@@ -1,0 +1,92 @@
+name: Build & Deploy Portfolio to VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-portfolio
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+        env:
+          EMDASH_SITE_URL: "https://nayreisme.dev"
+          NODE_ENV: "production"
+
+      - name: Prune dev dependencies
+        run: npm prune --omit=dev
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Sync build to VPS
+        run: |
+          RSYNC="rsync -az --no-owner --no-group -e \"ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no\""
+          DEST="${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/portfolio"
+
+          # dist (rebuilt every time, delete stale chunks)
+          rsync -az --delete --no-owner --no-group \
+            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
+            ./dist/ "$DEST/dist/"
+
+          # production node_modules (incremental sync; keeps stale files, harmless)
+          rsync -az --no-owner --no-group \
+            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
+            ./node_modules/ "$DEST/node_modules/"
+
+          # metadata + seed + public extras
+          rsync -az --no-owner --no-group \
+            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
+            ./package.json ./package-lock.json ./seed/ "$DEST/"
+
+      - name: Restart service & reload Nginx
+        run: |
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+            "sudo systemctl restart portfolio-emdash && sudo systemctl reload nginx"
+
+      - name: Health check
+        run: |
+          sleep 6
+          for i in 1 2 3 4 5; do
+            STATUS=$(ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
+              ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+              "curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:4321/" || echo 000)
+            echo "Attempt $i: local status $STATUS"
+            if [ "$STATUS" = "200" ] || [ "$STATUS" = "302" ]; then
+              break
+            fi
+            sleep 5
+          done
+          if [ "$STATUS" != "200" ] && [ "$STATUS" != "302" ]; then
+            echo "Health check FAILED (status $STATUS)"
+            ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
+              ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+              "sudo journalctl -u portfolio-emdash -n 50 --no-pager" || true
+            exit 1
+          fi
+          echo "Deployment healthy."

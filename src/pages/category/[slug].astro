@@ -1,0 +1,47 @@
+---
+import { getTaxonomyTermsWithCacheHint, getEmDashCollection } from "emdash";
+import Base from "../../layouts/Base.astro";
+
+const { slug } = Astro.params;
+const termsResult = await getTaxonomyTermsWithCacheHint("category", { includeCounts: false });
+const term = slug ? termsResult.data.find((item) => item.slug === slug) : null;
+if (!term) return Astro.rewrite("/404");
+
+const { entries: posts } = await getEmDashCollection("posts", {
+	where: { category: term.slug },
+	orderBy: { created_at: "desc" },
+	limit: 50,
+});
+
+function formatDate(d?: string | Date | null) {
+	if (!d) return "";
+	const date = typeof d === "string" ? new Date(d) : d;
+	return date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+}
+---
+
+<Base title={`${term.label} — Articles`}>
+	<div class="container-narrow" style="padding: var(--spacing-16) 0 var(--spacing-20);">
+		<header style="margin-bottom: var(--spacing-10); border-bottom: 1px solid var(--color-border-subtle); padding-bottom: var(--spacing-6);">
+			<a href="/posts" style="font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: 600; color: var(--color-brand);">← All Articles</a>
+			<h1 style="font-family: var(--font-sans); font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 800; letter-spacing: var(--tracking-tight); margin-top: var(--spacing-3);">{term.label}</h1>
+			<p style="font-family: var(--font-sans); color: var(--color-muted); margin-top: var(--spacing-1);">{posts.length} article{posts.length === 1 ? "" : "s"}</p>
+		</header>
+
+		<div style="display: flex; flex-direction: column;">
+			{posts.map((post) => (
+				<article style="padding: var(--spacing-6) 0; border-bottom: 1px solid var(--color-border-subtle);">
+					<a href={`/posts/${post.id}`} style="display: block;">
+						<div style="font-family: var(--font-sans); font-size: var(--font-size-xs); color: var(--color-muted); margin-bottom: var(--spacing-1);">
+							<time>{formatDate(post.data.createdAt)}</time>
+						</div>
+						<h2 style="font-family: var(--font-sans); font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin-bottom: var(--spacing-1);">{post.data.title}</h2>
+						{post.data.excerpt && (
+							<p style="font-family: var(--font-serif); font-size: var(--font-size-base); color: var(--color-text-secondary); line-height: var(--leading-normal);">{post.data.excerpt}</p>
+						)}
+					</a>
+				</article>
+			))}
+		</div>
+	</div>
+</Base>

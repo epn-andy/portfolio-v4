@@ -1,0 +1,98 @@
+---
+import { getEmDashEntry, getSeoMeta, decodeSlug } from "emdash";
+import { PortableText } from "emdash/ui";
+import Base from "../../layouts/Base.astro";
+
+const slug = decodeSlug(Astro.params.slug);
+if (!slug) return Astro.rewrite("/404");
+
+const { entry: project, cacheHint } = await getEmDashEntry("projects", slug);
+if (!project) return Astro.rewrite("/404");
+
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+
+const siteTitle = "Eryandhi Putro Nugroho";
+const seo = getSeoMeta(project, {
+	siteTitle,
+	siteUrl: Astro.url.origin,
+	path: Astro.url.pathname.replace(/\/$/, ""),
+});
+---
+
+<Base
+	title={`${project.data.title} — Work`}
+	description={project.data.summary || seo.description}
+	content={{ collection: "projects", id: project.data.id, slug }}
+>
+	<article class="article-wrap">
+		<header>
+			<a href="/work" class="back-link">← All Work</a>
+			<h1 class="project-detail-title">{project.data.title}</h1>
+			{project.data.tech_stack && (
+				<div class="project-detail-tech">{project.data.tech_stack}</div>
+			)}
+			{project.data.summary && (
+				<p class="article-subtitle">{project.data.summary}</p>
+			)}
+
+			<div class="project-actions">
+				{project.data.url && (
+					<a href={project.data.url} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+						Open Live Demo ↗
+					</a>
+				)}
+				{project.data.github_url && (
+					<a href={project.data.github_url} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+						View on GitHub ↗
+					</a>
+				)}
+			</div>
+		</header>
+
+		{project.data.content && (
+			<div class="prose" style="margin-top: var(--spacing-10);">
+				<PortableText value={project.data.content} />
+			</div>
+		)}
+	</article>
+</Base>
+
+<style>
+	.back-link {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		font-weight: 600;
+		color: var(--color-brand);
+		display: inline-block;
+		margin-bottom: var(--spacing-4);
+	}
+
+	.back-link:hover {
+		text-decoration: underline;
+	}
+
+	.project-detail-title {
+		font-family: var(--font-sans);
+		font-size: clamp(2rem, 5vw, 2.75rem);
+		font-weight: 800;
+		line-height: var(--leading-tight);
+		letter-spacing: var(--tracking-tight);
+		color: var(--color-text);
+		margin-bottom: var(--spacing-2);
+	}
+
+	.project-detail-tech {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm);
+		color: var(--color-brand);
+		margin-bottom: var(--spacing-4);
+	}
+
+	.project-actions {
+		display: flex;
+		gap: var(--spacing-3);
+		padding-bottom: var(--spacing-8);
+		border-bottom: 1px solid var(--color-border-subtle);
+		margin-bottom: var(--spacing-6);
+	}
+</style>

@@ -1,0 +1,4727 @@
+{
+  "$schema": "https://emdashcms.com/seed.schema.json",
+  "version": "1",
+  "meta": {
+    "name": "Eryandhi Putro Nugroho Portfolio & Blog",
+    "description": "Software engineer portfolio, projects, work experience, and engineering blog.",
+    "author": "Eryandhi Putro Nugroho"
+  },
+  "settings": {
+    "title": "Eryandhi Putro Nugroho",
+    "tagline": "Software Engineer & Builder — Fullstack .NET, IoT, Computer Vision"
+  },
+  "collections": [
+    {
+      "slug": "posts",
+      "label": "Posts",
+      "labelSingular": "Post",
+      "urlPattern": "/posts/{slug}",
+      "supports": [
+        "drafts",
+        "revisions",
+        "search",
+        "seo"
+      ],
+      "commentsEnabled": true,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "featured_image",
+          "label": "Featured Image",
+          "type": "image"
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "searchable": true
+        },
+        {
+          "slug": "excerpt",
+          "label": "Excerpt",
+          "type": "text",
+          "searchable": true
+        }
+      ]
+    },
+    {
+      "slug": "projects",
+      "label": "Projects",
+      "labelSingular": "Project",
+      "urlPattern": "/work/{slug}",
+      "supports": [
+        "drafts",
+        "revisions",
+        "search",
+        "seo"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "summary",
+          "label": "Summary",
+          "type": "text",
+          "searchable": true
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "searchable": true
+        },
+        {
+          "slug": "featured_image",
+          "label": "Featured Image",
+          "type": "image"
+        },
+        {
+          "slug": "tech_stack",
+          "label": "Tech Stack",
+          "type": "string"
+        },
+        {
+          "slug": "url",
+          "label": "Live Demo URL",
+          "type": "url"
+        },
+        {
+          "slug": "github_url",
+          "label": "GitHub URL",
+          "type": "url"
+        },
+        {
+          "slug": "order",
+          "label": "Display Order",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "slug": "experience",
+      "label": "Experience",
+      "labelSingular": "Experience",
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "company",
+          "label": "Company",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "role",
+          "label": "Role",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "slug": "start_date",
+          "label": "Start Date",
+          "type": "string"
+        },
+        {
+          "slug": "end_date",
+          "label": "End Date",
+          "type": "string"
+        },
+        {
+          "slug": "is_current",
+          "label": "Is Current Role",
+          "type": "boolean"
+        },
+        {
+          "slug": "order",
+          "label": "Display Order",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "slug": "pages",
+      "label": "Pages",
+      "labelSingular": "Page",
+      "urlPattern": "/pages/{slug}",
+      "supports": [
+        "drafts",
+        "revisions",
+        "search",
+        "seo"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "searchable": true
+        }
+      ]
+    }
+  ],
+  "taxonomies": [
+    {
+      "name": "category",
+      "label": "Categories",
+      "labelSingular": "Category",
+      "hierarchical": true,
+      "collections": [
+        "posts"
+      ],
+      "terms": [
+        {
+          "slug": "engineering",
+          "label": "Engineering"
+        },
+        {
+          "slug": "architecture",
+          "label": "Architecture"
+        },
+        {
+          "slug": "ai-tooling",
+          "label": "AI & Tooling"
+        },
+        {
+          "slug": "database",
+          "label": "Database & Query"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "label": "Tags",
+      "labelSingular": "Tag",
+      "hierarchical": false,
+      "collections": [
+        "posts"
+      ],
+      "terms": [
+        {
+          "slug": "ai-assistant",
+          "label": "AI Assistant"
+        },
+        {
+          "slug": "sql",
+          "label": "SQL Optimization"
+        },
+        {
+          "slug": "golang",
+          "label": "Go"
+        },
+        {
+          "slug": "javascript",
+          "label": "JavaScript"
+        },
+        {
+          "slug": "monorepo",
+          "label": "Monorepo"
+        },
+        {
+          "slug": "dotnet",
+          "label": "ASP.NET Core"
+        },
+        {
+          "slug": "vue",
+          "label": "Vue.js"
+        },
+        {
+          "slug": "iot",
+          "label": "IoT"
+        }
+      ]
+    }
+  ],
+  "bylines": [
+    {
+      "id": "byline-eryandhi",
+      "slug": "eryandhi-putro",
+      "displayName": "Eryandhi Putro Nugroho"
+    }
+  ],
+  "menus": [
+    {
+      "name": "primary",
+      "label": "Primary Navigation",
+      "items": [
+        {
+          "type": "custom",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "type": "custom",
+          "label": "Articles",
+          "url": "/posts"
+        },
+        {
+          "type": "custom",
+          "label": "Work",
+          "url": "/work"
+        },
+        {
+          "type": "custom",
+          "label": "About",
+          "url": "/about"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "posts": [
+      {
+        "id": "post-11",
+        "slug": "ai-pair-programming-untuk-tim-produk-2026-03-05",
+        "status": "published",
+        "data": {
+          "title": "AI Pair Programming untuk Tim Produk (2026-03-05)",
+          "excerpt": "Panduan praktis menerapkan AI assistant ke workflow coding tanpa menurunkan kualitas codebase.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "Context",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Artikel ini ditulis dengan gaya *blog engineer*: fokus pada problem nyata, pendekatan implementasi, dan trade-off teknis.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k3",
+              "style": "h1",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "AI Pair Programming untuk Tim Produk",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "AI bukan pengganti engineer, tapi **akselerator** untuk eksekusi harian: dari scaffolding fitur, test case, hingga dokumentasi.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k5",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "Kapan AI Paling Membantu?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k6",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "Menulis boilerplate dan struktur awal",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k7",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s7",
+                  "text": "Menyusun test unit/integration dasar",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k8",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s8",
+                  "text": "Refactor kecil yang repetitif",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k9",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s9",
+                  "text": "Menjelaskan legacy code ke engineer baru",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k10",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s10",
+                  "text": "Workflow yang Direkomendasikan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k11",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s11",
+                  "text": "**Brief yang jelas**: tujuan fitur, batasan, acceptance criteria.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k12",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s12",
+                  "text": "**Generate first draft** dengan AI.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k13",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s13",
+                  "text": "**Human review** untuk validasi business logic.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k14",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s14",
+                  "text": "**Test + lint + security checks** sebelum merge.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k15",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s15",
+                  "text": "Contoh Prompt Efektif",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k16",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s16",
+                  "text": "Bantu buat service layer untuk fitur checkout.\nSyarat:\n- Node.js + TypeScript\n- Validasi input dengan Zod\n- Return error mapping yang konsisten\n- Sertakan unit test minimal 3 skenario",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k17",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s17",
+                  "text": "Kesalahan yang Perlu Dihindari",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k18",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s18",
+                  "text": "Langsung merge output AI tanpa review",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k19",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s19",
+                  "text": "Prompt terlalu umum tanpa konteks domain",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k20",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s20",
+                  "text": "Tidak menyimpan prompt reusable tim",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k21",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s21",
+                  "text": "Penutup",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k22",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s22",
+                  "text": "Kunci sukses AI pair programming adalah disiplin engineering: prompt jelas, review ketat, dan standar kualitas tetap tinggi.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k23",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s23",
+                  "text": "Catatan Engineer",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k24",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s24",
+                  "text": "Fokus pada keputusan teknis yang bisa langsung dipraktikkan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k25",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s25",
+                  "text": "Hindari teori berlebihan tanpa konteks implementasi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k26",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s26",
+                  "text": "Sertakan area yang perlu diukur setelah rilis",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k27",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s27",
+                  "text": "--- _Dipublikasikan otomatis pada 2026-03-05._",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        "bylines": [
+          {
+            "byline": "byline-eryandhi"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "ai-tooling"
+          ],
+          "tag": [
+            "ai-assistant",
+            "javascript"
+          ]
+        }
+      },
+      {
+        "id": "post-10",
+        "slug": "optimasi-query-sql-untuk-api-bertraffic-tinggi-2026-03-04",
+        "status": "published",
+        "data": {
+          "title": "Optimasi Query SQL untuk API Bertraffic Tinggi (2026-03-04)",
+          "excerpt": "Teknik sederhana namun berdampak besar untuk menurunkan latency endpoint berbasis database.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "Context",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Artikel ini ditulis dengan gaya *blog engineer*: fokus pada problem nyata, pendekatan implementasi, dan trade-off teknis.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k3",
+              "style": "h1",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "Optimasi Query SQL untuk API Bertraffic Tinggi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "Saat traffic naik, performa database menentukan respons aplikasi. Optimasi SQL yang tepat bisa menurunkan latency secara signifikan.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k5",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "Sumber Bottleneck Umum",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k6",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "Index tidak sesuai pola query",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k7",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s7",
+                  "text": "Query mengambil kolom terlalu banyak",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k8",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s8",
+                  "text": "Pagination tidak konsisten",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k9",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s9",
+                  "text": "Join berat tanpa kebutuhan nyata",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k10",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s10",
+                  "text": "5 Langkah Optimasi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k11",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s11",
+                  "text": "1) Temukan query paling mahal",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k12",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s12",
+                  "text": "Aktifkan slow query log dan prioritaskan perbaikan berdasarkan dampak.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k13",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s13",
+                  "text": "2) Bangun index sesuai pola baca",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k14",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s14",
+                  "text": "Fokus pada kolom di `WHERE`, `ORDER BY`, dan `JOIN`.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k15",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s15",
+                  "text": "3) Hindari `SELECT *`",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k16",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s16",
+                  "text": "Ambil kolom yang benar-benar dipakai oleh response API.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k17",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s17",
+                  "text": "4) Pilih pagination yang tepat",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k18",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s18",
+                  "text": "Offset-limit cukup untuk data sedang, cursor lebih stabil untuk data besar.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k19",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s19",
+                  "text": "5) Ukur hasil setelah tuning",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k20",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s20",
+                  "text": "Pantau p95/p99 latency agar improvement terukur.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k21",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s21",
+                  "text": "Contoh Query",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k22",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s22",
+                  "text": "SELECT id, user_id, total_amount, created_at\nFROM orders\nWHERE status = 'PAID'\nORDER BY created_at DESC\nLIMIT 20 OFFSET 0;",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k23",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s23",
+                  "text": "Penutup",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k24",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s24",
+                  "text": "Optimasi SQL terbaik dilakukan bertahap namun konsisten: ukur, perbaiki, ukur lagi.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k25",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s25",
+                  "text": "Catatan Engineer",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k26",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s26",
+                  "text": "Fokus pada keputusan teknis yang bisa langsung dipraktikkan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k27",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s27",
+                  "text": "Hindari teori berlebihan tanpa konteks implementasi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k28",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s28",
+                  "text": "Sertakan area yang perlu diukur setelah rilis",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k29",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s29",
+                  "text": "--- _Dipublikasikan otomatis pada 2026-03-04._",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        "bylines": [
+          {
+            "byline": "byline-eryandhi"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "database"
+          ],
+          "tag": [
+            "sql",
+            "database"
+          ]
+        }
+      },
+      {
+        "id": "post-9",
+        "slug": "strategi-monorepo-javascript-untuk-tim-besar-2026-03-04",
+        "status": "published",
+        "data": {
+          "title": "Strategi Monorepo JavaScript untuk Tim Besar (2026-03-04)",
+          "excerpt": "Cara menjaga monorepo JS tetap cepat, terstruktur, dan nyaman untuk kolaborasi lintas squad.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "Context",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Artikel ini ditulis dengan gaya *blog engineer*: fokus pada problem nyata, pendekatan implementasi, dan trade-off teknis.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k3",
+              "style": "h1",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "Strategi Monorepo JavaScript untuk Tim Besar",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "Monorepo mempermudah berbagi komponen, tetapi bisa cepat melambat jika tanpa governance.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k5",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "Tantangan Umum",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k6",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "Waktu build membengkak",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k7",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s7",
+                  "text": "Dependency antar package berantakan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k8",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s8",
+                  "text": "Ownership code tidak jelas",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k9",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s9",
+                  "text": "Praktik yang Direkomendasikan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k10",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s10",
+                  "text": "Gunakan workspace manager (pnpm/yarn)",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k11",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s11",
+                  "text": "Terapkan affected build untuk CI",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k12",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s12",
+                  "text": "Definisikan owner tiap package",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k13",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s13",
+                  "text": "Standarkan lint/test di root pipeline",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k14",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s14",
+                  "text": "Struktur Dasar",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k15",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s15",
+                  "text": "/apps\n  /web\n  /admin\n/packages\n  /ui\n  /utils\n  /eslint-config",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k16",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s16",
+                  "text": "Penutup",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k17",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s17",
+                  "text": "Monorepo yang sehat lahir dari standar engineering yang tegas dan tooling yang tepat.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k18",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s18",
+                  "text": "Catatan Engineer",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k19",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s19",
+                  "text": "Fokus pada keputusan teknis yang bisa langsung dipraktikkan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k20",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s20",
+                  "text": "Hindari teori berlebihan tanpa konteks implementasi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k21",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s21",
+                  "text": "Sertakan area yang perlu diukur setelah rilis",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k22",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s22",
+                  "text": "--- _Dipublikasikan otomatis pada 2026-03-04._",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        "bylines": [
+          {
+            "byline": "byline-eryandhi"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "architecture"
+          ],
+          "tag": [
+            "monorepo",
+            "javascript"
+          ]
+        }
+      },
+      {
+        "id": "post-8",
+        "slug": "ai-pair-programming-untuk-tim-produk-2026-03-03",
+        "status": "published",
+        "data": {
+          "title": "AI Pair Programming untuk Tim Produk (2026-03-03)",
+          "excerpt": "Panduan praktis menerapkan AI assistant ke workflow coding tanpa menurunkan kualitas codebase.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "Context",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Artikel ini ditulis dengan gaya *blog engineer*: fokus pada problem nyata, pendekatan implementasi, dan trade-off teknis.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k3",
+              "style": "h1",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "AI Pair Programming untuk Tim Produk",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "AI bukan pengganti engineer, tapi **akselerator** untuk eksekusi harian: dari scaffolding fitur, test case, hingga dokumentasi.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k5",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "Kapan AI Paling Membantu?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k6",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "Menulis boilerplate dan struktur awal",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k7",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s7",
+                  "text": "Menyusun test unit/integration dasar",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k8",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s8",
+                  "text": "Refactor kecil yang repetitif",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k9",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s9",
+                  "text": "Menjelaskan legacy code ke engineer baru",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k10",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s10",
+                  "text": "Workflow yang Direkomendasikan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k11",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s11",
+                  "text": "**Brief yang jelas**: tujuan fitur, batasan, acceptance criteria.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k12",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s12",
+                  "text": "**Generate first draft** dengan AI.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k13",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s13",
+                  "text": "**Human review** untuk validasi business logic.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k14",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s14",
+                  "text": "**Test + lint + security checks** sebelum merge.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k15",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s15",
+                  "text": "Contoh Prompt Efektif",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k16",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s16",
+                  "text": "Bantu buat service layer untuk fitur checkout.\nSyarat:\n- Node.js + TypeScript\n- Validasi input dengan Zod\n- Return error mapping yang konsisten\n- Sertakan unit test minimal 3 skenario",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k17",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s17",
+                  "text": "Kesalahan yang Perlu Dihindari",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k18",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s18",
+                  "text": "Langsung merge output AI tanpa review",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k19",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s19",
+                  "text": "Prompt terlalu umum tanpa konteks domain",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k20",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s20",
+                  "text": "Tidak menyimpan prompt reusable tim",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k21",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s21",
+                  "text": "Penutup",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k22",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s22",
+                  "text": "Kunci sukses AI pair programming adalah disiplin engineering: prompt jelas, review ketat, dan standar kualitas tetap tinggi.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k23",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s23",
+                  "text": "Catatan Engineer",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k24",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s24",
+                  "text": "Fokus pada keputusan teknis yang bisa langsung dipraktikkan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k25",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s25",
+                  "text": "Hindari teori berlebihan tanpa konteks implementasi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k26",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s26",
+                  "text": "Sertakan area yang perlu diukur setelah rilis",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k27",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s27",
+                  "text": "--- _Dipublikasikan otomatis pada 2026-03-03._",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        "bylines": [
+          {
+            "byline": "byline-eryandhi"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "ai-tooling"
+          ],
+          "tag": [
+            "ai-assistant",
+            "javascript"
+          ]
+        }
+      },
+      {
+        "id": "post-7",
+        "slug": "membangun-service-go-yang-ringan-dan-tangguh-2026-03-03",
+        "status": "published",
+        "data": {
+          "title": "Membangun Service Go yang Ringan dan Tangguh (2026-03-03)",
+          "excerpt": "Pattern production-ready untuk service Go: timeout, error clarity, metrics, dan maintainability.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "Context",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Artikel ini ditulis dengan gaya *blog engineer*: fokus pada problem nyata, pendekatan implementasi, dan trade-off teknis.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k3",
+              "style": "h1",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "Membangun Service Go yang Ringan dan Tangguh",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "Go unggul untuk backend service karena performa tinggi dan deployment yang sederhana.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k5",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "Fondasi Wajib",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k6",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "Setiap request punya timeout via `context`",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k7",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s7",
+                  "text": "Error dibungkus agar root cause terlihat",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k8",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s8",
+                  "text": "Health check + metrics aktif sejak awal",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k9",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s9",
+                  "text": "Contoh Timeout",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k10",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s10",
+                  "text": "ctx, cancel := context.WithTimeout(r.Context(), 2*time.Second)\ndefer cancel()\n\nres, err := service.GetData(ctx, id)\nif err != nil {\n    return err\n}",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k11",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s11",
+                  "text": "Quick Wins",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k12",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s12",
+                  "text": "Tambahkan `golangci-lint` di CI",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k13",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s13",
+                  "text": "Gunakan structured logging (json)",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k14",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s14",
+                  "text": "Pantau error rate dan request duration",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k15",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s15",
+                  "text": "Penutup",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k16",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s16",
+                  "text": "Service Go yang kuat dibentuk dari kebiasaan kecil yang konsisten, bukan dari framework yang rumit.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k17",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s17",
+                  "text": "Catatan Engineer",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k18",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s18",
+                  "text": "Fokus pada keputusan teknis yang bisa langsung dipraktikkan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k19",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s19",
+                  "text": "Hindari teori berlebihan tanpa konteks implementasi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k20",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s20",
+                  "text": "Sertakan area yang perlu diukur setelah rilis",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k21",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s21",
+                  "text": "--- _Dipublikasikan otomatis pada 2026-03-03._",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        "bylines": [
+          {
+            "byline": "byline-eryandhi"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "engineering"
+          ],
+          "tag": [
+            "golang"
+          ]
+        }
+      },
+      {
+        "id": "post-6",
+        "slug": "membangun-service-go-yang-ringan-dan-tangguh-2026-03-01",
+        "status": "published",
+        "data": {
+          "title": "Membangun Service Go yang Ringan dan Tangguh (2026-03-01)",
+          "excerpt": "Pattern production-ready untuk service Go: timeout, error clarity, metrics, dan maintainability.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "Context",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Artikel ini ditulis dengan gaya *blog engineer*: fokus pada problem nyata, pendekatan implementasi, dan trade-off teknis.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k3",
+              "style": "h1",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "Membangun Service Go yang Ringan dan Tangguh",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "Go unggul untuk backend service karena performa tinggi dan deployment yang sederhana.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k5",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "Fondasi Wajib",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k6",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "Setiap request punya timeout via `context`",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k7",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s7",
+                  "text": "Error dibungkus agar root cause terlihat",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k8",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s8",
+                  "text": "Health check + metrics aktif sejak awal",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k9",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s9",
+                  "text": "Contoh Timeout",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k10",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s10",
+                  "text": "ctx, cancel := context.WithTimeout(r.Context(), 2*time.Second)\ndefer cancel()\n\nres, err := service.GetData(ctx, id)\nif err != nil {\n    return err\n}",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k11",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s11",
+                  "text": "Quick Wins",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k12",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s12",
+                  "text": "Tambahkan `golangci-lint` di CI",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k13",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s13",
+                  "text": "Gunakan structured logging (json)",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k14",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s14",
+                  "text": "Pantau error rate dan request duration",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k15",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s15",
+                  "text": "Penutup",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k16",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s16",
+                  "text": "Service Go yang kuat dibentuk dari kebiasaan kecil yang konsisten, bukan dari framework yang rumit.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k17",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s17",
+                  "text": "Catatan Engineer",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k18",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s18",
+                  "text": "Fokus pada keputusan teknis yang bisa langsung dipraktikkan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k19",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s19",
+                  "text": "Hindari teori berlebihan tanpa konteks implementasi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k20",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s20",
+                  "text": "Sertakan area yang perlu diukur setelah rilis",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k21",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s21",
+                  "text": "--- _Dipublikasikan otomatis pada 2026-03-01._",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        "bylines": [
+          {
+            "byline": "byline-eryandhi"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "engineering"
+          ],
+          "tag": [
+            "golang"
+          ]
+        }
+      },
+      {
+        "id": "post-5",
+        "slug": "optimasi-query-sql-untuk-api-bertraffic-tinggi-2026-03-01",
+        "status": "published",
+        "data": {
+          "title": "Optimasi Query SQL untuk API Bertraffic Tinggi (2026-03-01)",
+          "excerpt": "Teknik sederhana namun berdampak besar untuk menurunkan latency endpoint berbasis database.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "Context",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Artikel ini ditulis dengan gaya *blog engineer*: fokus pada problem nyata, pendekatan implementasi, dan trade-off teknis.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k3",
+              "style": "h1",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "Optimasi Query SQL untuk API Bertraffic Tinggi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "Saat traffic naik, performa database menentukan respons aplikasi. Optimasi SQL yang tepat bisa menurunkan latency secara signifikan.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k5",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "Sumber Bottleneck Umum",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k6",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "Index tidak sesuai pola query",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k7",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s7",
+                  "text": "Query mengambil kolom terlalu banyak",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k8",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s8",
+                  "text": "Pagination tidak konsisten",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k9",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s9",
+                  "text": "Join berat tanpa kebutuhan nyata",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k10",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s10",
+                  "text": "5 Langkah Optimasi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k11",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s11",
+                  "text": "1) Temukan query paling mahal",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k12",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s12",
+                  "text": "Aktifkan slow query log dan prioritaskan perbaikan berdasarkan dampak.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k13",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s13",
+                  "text": "2) Bangun index sesuai pola baca",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k14",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s14",
+                  "text": "Fokus pada kolom di `WHERE`, `ORDER BY`, dan `JOIN`.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k15",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s15",
+                  "text": "3) Hindari `SELECT *`",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k16",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s16",
+                  "text": "Ambil kolom yang benar-benar dipakai oleh response API.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k17",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s17",
+                  "text": "4) Pilih pagination yang tepat",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k18",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s18",
+                  "text": "Offset-limit cukup untuk data sedang, cursor lebih stabil untuk data besar.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k19",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s19",
+                  "text": "5) Ukur hasil setelah tuning",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k20",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s20",
+                  "text": "Pantau p95/p99 latency agar improvement terukur.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k21",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s21",
+                  "text": "Contoh Query",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k22",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s22",
+                  "text": "SELECT id, user_id, total_amount, created_at\nFROM orders\nWHERE status = 'PAID'\nORDER BY created_at DESC\nLIMIT 20 OFFSET 0;",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k23",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s23",
+                  "text": "Penutup",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k24",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s24",
+                  "text": "Optimasi SQL terbaik dilakukan bertahap namun konsisten: ukur, perbaiki, ukur lagi.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k25",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s25",
+                  "text": "Catatan Engineer",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k26",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s26",
+                  "text": "Fokus pada keputusan teknis yang bisa langsung dipraktikkan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k27",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s27",
+                  "text": "Hindari teori berlebihan tanpa konteks implementasi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k28",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s28",
+                  "text": "Sertakan area yang perlu diukur setelah rilis",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k29",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s29",
+                  "text": "--- _Dipublikasikan otomatis pada 2026-03-01._",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        "bylines": [
+          {
+            "byline": "byline-eryandhi"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "database"
+          ],
+          "tag": [
+            "sql",
+            "database"
+          ]
+        }
+      },
+      {
+        "id": "post-4",
+        "slug": "ai-pair-programming-untuk-tim-produk-2026-02-28",
+        "status": "published",
+        "data": {
+          "title": "AI Pair Programming untuk Tim Produk (2026-02-28)",
+          "excerpt": "Panduan praktis menerapkan AI assistant ke workflow coding tanpa menurunkan kualitas codebase.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "Context",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Artikel ini ditulis dengan gaya *blog engineer*: fokus pada problem nyata, pendekatan implementasi, dan trade-off teknis.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k3",
+              "style": "h1",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "AI Pair Programming untuk Tim Produk",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "AI bukan pengganti engineer, tapi **akselerator** untuk eksekusi harian: dari scaffolding fitur, test case, hingga dokumentasi.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k5",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "Kapan AI Paling Membantu?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k6",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "Menulis boilerplate dan struktur awal",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k7",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s7",
+                  "text": "Menyusun test unit/integration dasar",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k8",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s8",
+                  "text": "Refactor kecil yang repetitif",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k9",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s9",
+                  "text": "Menjelaskan legacy code ke engineer baru",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k10",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s10",
+                  "text": "Workflow yang Direkomendasikan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k11",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s11",
+                  "text": "**Brief yang jelas**: tujuan fitur, batasan, acceptance criteria.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k12",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s12",
+                  "text": "**Generate first draft** dengan AI.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k13",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s13",
+                  "text": "**Human review** untuk validasi business logic.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k14",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s14",
+                  "text": "**Test + lint + security checks** sebelum merge.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k15",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s15",
+                  "text": "Contoh Prompt Efektif",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k16",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s16",
+                  "text": "Bantu buat service layer untuk fitur checkout.\nSyarat:\n- Node.js + TypeScript\n- Validasi input dengan Zod\n- Return error mapping yang konsisten\n- Sertakan unit test minimal 3 skenario",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k17",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s17",
+                  "text": "Kesalahan yang Perlu Dihindari",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k18",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s18",
+                  "text": "Langsung merge output AI tanpa review",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k19",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s19",
+                  "text": "Prompt terlalu umum tanpa konteks domain",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k20",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s20",
+                  "text": "Tidak menyimpan prompt reusable tim",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k21",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s21",
+                  "text": "Penutup",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k22",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s22",
+                  "text": "Kunci sukses AI pair programming adalah disiplin engineering: prompt jelas, review ketat, dan standar kualitas tetap tinggi.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k23",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s23",
+                  "text": "Catatan Engineer",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k24",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s24",
+                  "text": "Fokus pada keputusan teknis yang bisa langsung dipraktikkan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k25",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s25",
+                  "text": "Hindari teori berlebihan tanpa konteks implementasi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k26",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s26",
+                  "text": "Sertakan area yang perlu diukur setelah rilis",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k27",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s27",
+                  "text": "--- _Dipublikasikan otomatis pada 2026-02-28._",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        "bylines": [
+          {
+            "byline": "byline-eryandhi"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "ai-tooling"
+          ],
+          "tag": [
+            "ai-assistant",
+            "javascript"
+          ]
+        }
+      },
+      {
+        "id": "post-3",
+        "slug": "membangun-service-go-yang-ringan-dan-tangguh-2026-02-28",
+        "status": "published",
+        "data": {
+          "title": "Membangun Service Go yang Ringan dan Tangguh (2026-02-28)",
+          "excerpt": "Pattern production-ready untuk service Go: timeout, error clarity, metrics, dan maintainability.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "Context",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Artikel ini ditulis dengan gaya *blog engineer*: fokus pada problem nyata, pendekatan implementasi, dan trade-off teknis.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k3",
+              "style": "h1",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "Membangun Service Go yang Ringan dan Tangguh",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "Go unggul untuk backend service karena performa tinggi dan deployment yang sederhana.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k5",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "Fondasi Wajib",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k6",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "Setiap request punya timeout via `context`",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k7",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s7",
+                  "text": "Error dibungkus agar root cause terlihat",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k8",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s8",
+                  "text": "Health check + metrics aktif sejak awal",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k9",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s9",
+                  "text": "Contoh Timeout",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k10",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s10",
+                  "text": "ctx, cancel := context.WithTimeout(r.Context(), 2*time.Second)\ndefer cancel()\n\nres, err := service.GetData(ctx, id)\nif err != nil {\n    return err\n}",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k11",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s11",
+                  "text": "Quick Wins",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k12",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s12",
+                  "text": "Tambahkan `golangci-lint` di CI",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k13",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s13",
+                  "text": "Gunakan structured logging (json)",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k14",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s14",
+                  "text": "Pantau error rate dan request duration",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k15",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s15",
+                  "text": "Penutup",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k16",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s16",
+                  "text": "Service Go yang kuat dibentuk dari kebiasaan kecil yang konsisten, bukan dari framework yang rumit.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k17",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s17",
+                  "text": "Catatan Engineer",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k18",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s18",
+                  "text": "Fokus pada keputusan teknis yang bisa langsung dipraktikkan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k19",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s19",
+                  "text": "Hindari teori berlebihan tanpa konteks implementasi",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k20",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s20",
+                  "text": "Sertakan area yang perlu diukur setelah rilis",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k21",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s21",
+                  "text": "--- _Dipublikasikan otomatis pada 2026-02-28._",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        "bylines": [
+          {
+            "byline": "byline-eryandhi"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "engineering"
+          ],
+          "tag": [
+            "golang"
+          ]
+        }
+      },
+      {
+        "id": "post-2",
+        "slug": "membangun-service-go-yang-ringan-dan-tangguh-2026-02-26",
+        "status": "published",
+        "data": {
+          "title": "Membangun Service Go yang Ringan dan Tangguh (2026-02-26)",
+          "excerpt": "Blueprint service Go untuk production: context timeout, error handling konsisten, dan observability sejak awal.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "h1",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "Membangun Service Go yang Ringan dan Tangguh",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Go adalah pilihan kuat untuk backend service karena performa tinggi, memory footprint kecil, dan concurrency yang simpel.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k3",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "Prinsip Dasar Service Go yang Sehat",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k4",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "**Setiap request punya timeout**",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k5",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "**Error harus informatif dan terstruktur**",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k6",
+              "style": "normal",
+              "listItem": "number",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "**Health check + metrics bukan fitur opsional**",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k7",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s7",
+                  "text": "Struktur Minimal yang Direkomendasikan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k8",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s8",
+                  "text": "/cmd/api\n/internal/handler\n/internal/service\n/internal/repository\n/pkg/logger",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k9",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s9",
+                  "text": "Dengan struktur ini, logic bisnis tidak bercampur dengan detail HTTP atau DB.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k10",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s10",
+                  "text": "Contoh Timeout per Request",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k11",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s11",
+                  "text": "ctx, cancel := context.WithTimeout(r.Context(), 2*time.Second)\ndefer cancel()\n\nresult, err := svc.GetProfile(ctx, userID)\nif err != nil {\n    // map error ke status code yang tepat\n}",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k12",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s12",
+                  "text": "Error Handling yang Konsisten",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k13",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s13",
+                  "text": "Gunakan wrapping supaya root cause tetap terlihat:",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k14",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s14",
+                  "text": "if err != nil {\n    return fmt.Errorf(\"fetch profile failed: %w\", err)\n}",
+                  "marks": [
+                    "code"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k15",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s15",
+                  "text": "Lalu kirim log dalam format terstruktur (`json`) agar mudah dianalisis.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k16",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s16",
+                  "text": "Observability Wajib",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k17",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s17",
+                  "text": "Endpoint `/healthz` untuk readiness/liveness",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k18",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s18",
+                  "text": "Metrics (request count, duration, error rate)",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k19",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s19",
+                  "text": "Correlation ID agar tracing antar service jelas",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k20",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s20",
+                  "text": "Quick Wins untuk Tim",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k21",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s21",
+                  "text": "Tambahkan linters (`golangci-lint`) di CI",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k22",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s22",
+                  "text": "Jalankan race detector di test penting",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k23",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s23",
+                  "text": "Batasi dependency eksternal agar binary tetap ringan",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k24",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s24",
+                  "text": "Penutup",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k25",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s25",
+                  "text": "Service Go yang tangguh lahir dari kebiasaan engineering yang disiplin. Mulai dari timeout, error clarity, dan observability — lalu scale dengan percaya diri.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        "bylines": [
+          {
+            "byline": "byline-eryandhi"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "engineering"
+          ],
+          "tag": [
+            "golang"
+          ]
+        }
+      },
+      {
+        "id": "post-1",
+        "slug": "optimasi-query-sql-untuk-api-bertraffic-tinggi-2026-02-26",
+        "status": "published",
+        "data": {
+          "title": "Optimasi Query SQL untuk API Bertraffic Tinggi (2026-02-26)",
+          "excerpt": "Teknik indexing, pagination, dan observability pada API modern.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "Performansi API sering bottleneck di query database. Fokus utama: indexing sesuai pola baca, menghindari SELECT berlebihan, dan pagination yang konsisten.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Checklist optimasi:",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k3",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "Pastikan kolom filter dan sort terindeks.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k4",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "Gunakan projection agar payload lebih kecil.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k5",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "Monitor slow query dan lakukan tuning berkala.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k6",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "Hasilnya: latency stabil, biaya infrastruktur lebih efisien, dan UX aplikasi meningkat.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "k7",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s7",
+                  "text": "_Dipublikasikan otomatis pada 2026-02-26._",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        "bylines": [
+          {
+            "byline": "byline-eryandhi"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "database"
+          ],
+          "tag": [
+            "sql",
+            "database"
+          ]
+        }
+      }
+    ],
+    "projects": [
+      {
+        "id": "proj-5",
+        "slug": "wood-craft-e-catalog",
+        "status": "published",
+        "data": {
+          "title": "Wood Craft E-Catalog",
+          "summary": "A lightweight electronic catalog website for a wood craft shop based in Kediri. Designed to showcase products with a clean, responsive layout. Built with vanilla JavaScript and styled using Tailwind CSS.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "A lightweight electronic catalog website for a wood craft shop based in Kediri. Designed to showcase products with a clean, responsive layout. Built with vanilla JavaScript and styled using Tailwind CSS.",
+                  "marks": []
+                }
+              ]
+            }
+          ],
+          "tech_stack": "Vanilla JS • Tailwind CSS",
+          "order": 0
+        }
+      },
+      {
+        "id": "proj-4",
+        "slug": "ppe-detection-system",
+        "status": "published",
+        "data": {
+          "title": "PPE Detection System",
+          "summary": "A computer vision prototype for detecting Personal Protective Equipment (PPE) compliance in mining work areas. Built using image processing and object detection techniques. Entered the Youthtech YMCC IV competition at UPN Veteran Yogyakarta and won 1st place with the BREM Team.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "A computer vision prototype for detecting Personal Protective Equipment (PPE) compliance in mining work areas. Built using image processing and object detection techniques. Entered the Youthtech YMCC IV competition at UPN Veteran Yogyakarta and won 1st place with the BREM Team.",
+                  "marks": []
+                }
+              ]
+            }
+          ],
+          "tech_stack": "Python • OpenCV • TensorFlow • Computer Vision",
+          "order": 0
+        }
+      },
+      {
+        "id": "proj-3",
+        "slug": "smart-trash-iot",
+        "status": "published",
+        "data": {
+          "title": "Smart Trash IoT",
+          "summary": "An IoT-based smart trash management system developed during an internship at Diskominfo Kota Madiun. Uses Infrared and MQ Gas sensors to monitor bin fill levels and hazardous gases, with real-time data synced to Firebase RTDB and an Android companion app for remote monitoring.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "An IoT-based smart trash management system developed during an internship at Diskominfo Kota Madiun. Uses Infrared and MQ Gas sensors to monitor bin fill levels and hazardous gases, with real-time data synced to Firebase RTDB and an Android companion app for remote monitoring.",
+                  "marks": []
+                }
+              ]
+            }
+          ],
+          "tech_stack": "ESP32 • Firebase RTDB • Android • IoT",
+          "order": 0
+        }
+      },
+      {
+        "id": "proj-2",
+        "slug": "automata-web-road-damage-mapping",
+        "status": "published",
+        "data": {
+          "title": "Automata Web — Road Damage Mapping Platform",
+          "summary": "A web-based mapping platform that complements the Automata detection system. Aggregates road damage data from the IoT device and displays it on an interactive map using the Google Maps API, enabling city authorities to visualize and prioritize road repair work.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "A web-based mapping platform that complements the Automata detection system. Aggregates road damage data from the IoT device and displays it on an interactive map using the Google Maps API, enabling city authorities to visualize and prioritize road repair work.",
+                  "marks": []
+                }
+              ]
+            }
+          ],
+          "tech_stack": "Google Maps API • Web App • JavaScript",
+          "order": 0
+        }
+      },
+      {
+        "id": "proj-1",
+        "slug": "automata-road-damage-detection",
+        "status": "published",
+        "data": {
+          "title": "Automata — Road Damage Detection System",
+          "summary": "An automatic asphalt road damage detection system using transfer learning and the TensorFlow Object Detection library. The system detects and classifies road surface damage in real-time from camera feeds mounted on a moving vehicle. Contested in KMIPN IV and PKM 2022, reaching PIMNAS stage funding.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "k1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "An automatic asphalt road damage detection system using transfer learning and the TensorFlow Object Detection library. The system detects and classifies road surface damage in real-time from camera feeds mounted on a moving vehicle. Contested in KMIPN IV and PKM 2022, reaching PIMNAS stage funding.",
+                  "marks": []
+                }
+              ]
+            }
+          ],
+          "tech_stack": "TensorFlow • Transfer Learning • Python • IoT",
+          "order": 0
+        }
+      }
+    ],
+    "experience": [
+      {
+        "id": "job-7",
+        "slug": "job-7",
+        "status": "published",
+        "data": {
+          "title": "IT Developer (Fullstack .NET) @ PT United Tractors",
+          "company": "PT United Tractors",
+          "role": "IT Developer (Fullstack .NET)",
+          "description": "IT Developer stuff",
+          "start_date": "2023-07-01",
+          "end_date": "",
+          "is_current": true,
+          "order": 0
+        }
+      },
+      {
+        "id": "job-6",
+        "slug": "job-6",
+        "status": "published",
+        "data": {
+          "title": "IT Helpdesk @ PT United Tractors",
+          "company": "PT United Tractors",
+          "role": "IT Helpdesk",
+          "description": "IT Helpdesk stuff",
+          "start_date": "2023-01-01",
+          "end_date": "2023-06-30",
+          "is_current": false,
+          "order": 0
+        }
+      },
+      {
+        "id": "job-4",
+        "slug": "job-4",
+        "status": "published",
+        "data": {
+          "title": "Competitor — Internet of Things Category @ KMIPN IV — Batam State Polytechnic",
+          "company": "KMIPN IV — Batam State Polytechnic",
+          "role": "Competitor — Internet of Things Category",
+          "description": "Represented team in the 4th National Polytechnic Informatics Student Competition. Passed the IoT category with the Automata prototype — an automated road damage mapping and detection system.",
+          "start_date": "2022-08-01",
+          "end_date": "2022-08-31",
+          "is_current": false,
+          "order": 0
+        }
+      },
+      {
+        "id": "job-5",
+        "slug": "job-5",
+        "status": "published",
+        "data": {
+          "title": "Participant — Karsa Cipta Category @ Pekan Kreativitas Mahasiswa (PKM) 2022",
+          "company": "Pekan Kreativitas Mahasiswa (PKM) 2022",
+          "role": "Participant — Karsa Cipta Category",
+          "description": "Submitted a prototype proposal for the Road Damage Mapping and Detection System (Automata) in the PKM Karsa Cipta category. Passed for funding and entered preparation for PIMNAS (National Student Scientific Week).",
+          "start_date": "2022-07-01",
+          "end_date": "2022-09-30",
+          "is_current": false,
+          "order": 0
+        }
+      },
+      {
+        "id": "job-3",
+        "slug": "job-3",
+        "status": "published",
+        "data": {
+          "title": "Competitor — Innovation in Mining Technology @ Youthtech YMCC IV — UPN Veteran Yogyakarta",
+          "company": "Youthtech YMCC IV — UPN Veteran Yogyakarta",
+          "role": "Competitor — Innovation in Mining Technology",
+          "description": "Competed in a mining technology innovation competition and won 1st place with the BREM Team. Built a PPE (Personal Protective Equipment) Detection System for mining work areas using computer vision.",
+          "start_date": "2021-07-01",
+          "end_date": "2021-07-31",
+          "is_current": false,
+          "order": 0
+        }
+      },
+      {
+        "id": "job-2",
+        "slug": "job-2",
+        "status": "published",
+        "data": {
+          "title": "Internship — ICT Development @ Dinas Komunikasi dan Informatika Kota Madiun",
+          "company": "Dinas Komunikasi dan Informatika Kota Madiun",
+          "role": "Internship — ICT Development",
+          "description": "Conducted ICT needs survey at the DISKOMINFO office. Developed an IoT-based Automatic Trash system using ESP32 and Android application to support smart waste management.",
+          "start_date": "2021-07-01",
+          "end_date": "2021-12-31",
+          "is_current": false,
+          "order": 0
+        }
+      },
+      {
+        "id": "job-1",
+        "slug": "job-1",
+        "status": "published",
+        "data": {
+          "title": "Internship — IT Support & Technician @ Master Computer Ponorogo",
+          "company": "Master Computer Ponorogo",
+          "role": "Internship — IT Support & Technician",
+          "description": "Served customers in buying and selling computer and laptop spare parts. Performed laptop and computer hardware servicing, and handled CCTV and home WiFi installations.",
+          "start_date": "2017-09-01",
+          "end_date": "2018-01-31",
+          "is_current": false,
+          "order": 0
+        }
+      }
+    ],
+    "pages": [
+      {
+        "id": "page-about",
+        "slug": "about",
+        "status": "published",
+        "data": {
+          "title": "About Eryandhi Putro Nugroho",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "a1",
+              "style": "h1",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s1",
+                  "text": "About Eryandhi Putro Nugroho"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "a2",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s2",
+                  "text": "Software engineer from Ponorogo, Indonesia — currently working as IT Developer (Fullstack .NET) at PT United Tractors. Building full-stack web systems, IoT solutions, and computer vision prototypes. Passionate about clean architecture, developer tooling, and shipping products that actually work."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "a3",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s3",
+                  "text": "Skills & Tech Stack"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "a4",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s4",
+                  "text": "Languages & Frameworks: C# (.NET Core, ASP.NET Core, EF Core), TypeScript / JavaScript, Go, Python, Vue 3, Astro"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "a5",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s5",
+                  "text": "Databases & Systems: PostgreSQL, SQL Server, SQLite, Redis, Docker, Nginx, Linux System Administration"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "a6",
+              "style": "normal",
+              "listItem": "bullet",
+              "level": 1,
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s6",
+                  "text": "Hardware & Vision: ESP32 / Arduino, MQTT, TensorFlow, OpenCV, Computer Vision"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

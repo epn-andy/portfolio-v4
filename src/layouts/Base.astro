@@ -1,0 +1,169 @@
+---
+import { getSiteSettingsWithCacheHint } from "emdash";
+import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
+import { createPublicPageContext } from "emdash/page";
+import { Font } from "astro:assets";
+import "../styles/tokens.css";
+import "../styles/theme.css";
+import "../styles/medium.css";
+
+interface Props {
+	title: string;
+	pageTitle?: string | null;
+	description?: string | null;
+	image?: string | null;
+	canonical?: string | null;
+	robots?: string | null;
+	type?: "website" | "article";
+	publishedTime?: string | null;
+	modifiedTime?: string | null;
+	author?: string | null;
+	content?: { collection: string; id: string; slug?: string | null };
+	showProgressBar?: boolean;
+}
+
+const {
+	title,
+	pageTitle,
+	description = "Software engineer from Ponorogo, Indonesia — Fullstack .NET, IoT, Computer Vision, and Engineering Blog.",
+	image,
+	canonical,
+	robots,
+	type = "website",
+	publishedTime,
+	modifiedTime,
+	author = "Eryandhi Putro Nugroho",
+	content,
+	showProgressBar = false,
+} = Astro.props;
+
+const [settingsResult] = await Promise.all([
+	getSiteSettingsWithCacheHint(),
+]);
+
+const siteTitle = "Eryandhi Putro Nugroho";
+const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`;
+
+const pageCtx = createPublicPageContext({
+	Astro,
+	kind: content ? "content" : "custom",
+	pageType: type,
+	title: fullTitle,
+	pageTitle: pageTitle ?? title,
+	description,
+	canonical,
+	image,
+	content,
+	seo: { ogImage: image, robots },
+	articleMeta: { publishedTime, modifiedTime, author },
+	siteName: siteTitle,
+});
+
+const currentPath = Astro.url.pathname;
+const isLoggedIn = !!Astro.locals.user;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<Font cssVariable="--font-serif" preload />
+		<Font cssVariable="--font-sans" />
+		<Font cssVariable="--font-mono" />
+		<title>{fullTitle}</title>
+		<link rel="alternate" type="application/rss+xml" title="Eryandhi Putro Nugroho — RSS Feed" href="/rss.xml" />
+		<EmDashHead page={pageCtx} />
+		<script is:inline>
+			// Instant dark/light mode execution without flash
+			(function () {
+				const stored = localStorage.getItem("theme");
+				const preferDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+				const theme = stored || (preferDark ? "dark" : "light");
+				document.documentElement.classList.toggle("dark", theme === "dark");
+				document.documentElement.style.colorScheme = theme;
+			})();
+		</script>
+	</head>
+	<body>
+		<EmDashBodyStart page={pageCtx} />
+
+		{showProgressBar && <div id="reading-progress" aria-hidden="true" />}
+
+		<header class="site-header">
+			<nav class="nav">
+				<a href="/" class="site-title">
+					<span class="active-dot" title="pipeline: active (available for projects)"></span>
+					<span>Eryandhi Putro</span>
+				</a>
+
+				<ul class="nav-links">
+					<li><a href="/posts" class={`nav-link ${currentPath.startsWith('/posts') ? 'active' : ''}`}>Articles</a></li>
+					<li><a href="/work" class={`nav-link ${currentPath.startsWith('/work') ? 'active' : ''}`}>Work</a></li>
+					<li><a href="/about" class={`nav-link ${currentPath === '/about' ? 'active' : ''}`}>About</a></li>
+				</ul>
+
+				<div class="nav-actions">
+					<button
+						id="theme-toggle"
+						class="theme-toggle-btn"
+						type="button"
+						aria-label="Toggle dark mode"
+					>
+						<span id="theme-icon">◐</span>
+						<span id="theme-label" style="display: none;">Theme</span>
+					</button>
+
+					{isLoggedIn && (
+						<a href="/_emdash/admin" class="btn btn-secondary" style="padding: 4px 10px; font-size: 12px;">Admin</a>
+					)}
+				</div>
+			</nav>
+		</header>
+
+		<main id="main-content">
+			<slot />
+		</main>
+
+		<footer class="site-footer">
+			<div class="footer-inner">
+				<div class="footer-copy">
+					© {new Date().getFullYear()} Eryandhi Putro Nugroho. All rights reserved.
+				</div>
+				<div class="footer-links">
+					<a href="https://github.com/epn-andy" target="_blank" rel="noopener noreferrer">GitHub</a>
+					<a href="https://linkedin.com/in/eryandhi" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+					<a href="/rss.xml">RSS</a>
+					<a href="/about#cv">CV</a>
+				</div>
+			</div>
+		</footer>
+
+		<EmDashBodyEnd page={pageCtx} />
+
+		<script is:inline>
+			// Theme Toggle Logic
+			const btn = document.getElementById("theme-toggle");
+			if (btn) {
+				btn.addEventListener("click", () => {
+					const isDark = document.documentElement.classList.toggle("dark");
+					const theme = isDark ? "dark" : "light";
+					document.documentElement.style.colorScheme = theme;
+					localStorage.setItem("theme", theme);
+				});
+			}
+
+			// Reading Progress Bar
+			const progressBar = document.getElementById("reading-progress");
+			if (progressBar) {
+				window.addEventListener("scroll", () => {
+					const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+					if (totalHeight > 0) {
+						const progress = (window.scrollY / totalHeight) * 100;
+						progressBar.style.width = Math.min(progress, 100) + "%";
+					}
+				}, { passive: true });
+			}
+		</script>
+	</body>
+</html>

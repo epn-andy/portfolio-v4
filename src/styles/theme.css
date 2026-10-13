@@ -1,0 +1,229 @@
+/*
+  theme.css -- Theme overrides and global layout rules for nayreisme.dev
+*/
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 16px;
+	scroll-behavior: smooth;
+	background-color: var(--color-bg);
+	color: var(--color-text);
+}
+
+body {
+	font-family: var(--font-sans);
+	line-height: var(--leading-normal);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Site header / navigation -- clean Medium-style top bar */
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	background: var(--color-bg);
+	border-bottom: 1px solid var(--color-border);
+	backdrop-filter: blur(8px);
+	height: var(--nav-height);
+}
+
+.nav {
+	max-width: var(--wide-width);
+	margin: 0 auto;
+	height: 100%;
+	padding: 0 var(--spacing-6);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--spacing-6);
+}
+
+.site-title {
+	font-family: var(--font-sans);
+	font-weight: 700;
+	font-size: var(--font-size-lg);
+	letter-spacing: var(--tracking-snug);
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-3);
+	color: var(--color-text);
+}
+
+.site-title .active-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #10b981;
+	box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.nav-links {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-6);
+	list-style: none;
+}
+
+.nav-link {
+	font-size: var(--font-size-sm);
+	color: var(--color-text-secondary);
+	transition: color var(--transition-fast);
+	font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+	color: var(--color-text);
+}
+
+.nav-actions {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-3);
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+	background: transparent;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	padding: 6px 10px;
+	cursor: pointer;
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-xs);
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	transition: all var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+	color: var(--color-text);
+	border-color: var(--color-muted);
+}
+
+/* Site footer */
+.site-footer {
+	border-top: 1px solid var(--color-border);
+	padding: var(--spacing-12) 0;
+	background: var(--color-bg-subtle);
+	margin-top: auto;
+}
+
+.footer-inner {
+	max-width: var(--wide-width);
+	margin: 0 auto;
+	padding: 0 var(--spacing-6);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--spacing-4);
+	font-size: var(--font-size-sm);
+	color: var(--color-muted);
+}
+
+.footer-links {
+	display: flex;
+	gap: var(--spacing-6);
+}
+
+.footer-links a:hover {
+	color: var(--color-text);
+}
+
+/* Common container */
+.container {
+	max-width: var(--wide-width);
+	margin: 0 auto;
+	padding: 0 var(--spacing-6);
+}
+
+.container-narrow {
+	max-width: var(--content-width);
+	margin: 0 auto;
+	padding: 0 var(--spacing-6);
+}
+
+/* Button styles */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--spacing-2);
+	font-size: var(--font-size-sm);
+	font-weight: 500;
+	padding: 8px 16px;
+	border-radius: 9999px;
+	border: 1px solid transparent;
+	transition: all var(--transition-fast);
+	cursor: pointer;
+}
+
+.btn-primary {
+	background: var(--color-brand);
+	color: var(--color-on-brand);
+}
+
+.btn-primary:hover {
+	background: var(--color-brand-hover);
+}
+
+.btn-secondary {
+	background: transparent;
+	border-color: var(--color-border);
+	color: var(--color-text);
+}
+
+.btn-secondary:hover {
+	border-color: var(--color-text);
+}
+
+/* Tag / Badge pill */
+.badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 3px 10px;
+	border-radius: 9999px;
+	font-size: var(--font-size-xs);
+	font-weight: 500;
+	background: var(--color-surface);
+	color: var(--color-text-secondary);
+	border: 1px solid var(--color-border);
+}
+
+/* Reading Progress Bar (Medium style) */
+#reading-progress {
+	position: fixed;
+	top: var(--nav-height);
+	left: 0;
+	height: 2px;
+	background: var(--color-brand);
+	width: 0%;
+	z-index: 40;
+	transition: width 0.1s linear;
+}

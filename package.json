@@ -1,0 +1,30 @@
+{
+  "name": "nayreisme-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "emdash": {
+    "label": "Portfolio",
+    "seed": "seed/seed.json"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "node ./dist/server/entry.mjs",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/node": "^11.1.7",
+    "@astrojs/react": "^7.0.1",
+    "@emdash-cms/auth-atproto": "^0.2.8",
+    "astro": "^7.3.8",
+    "emdash": "^1.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,0 +1,298 @@
+---
+import { getEmDashEntry, getEmDashCollection } from "emdash";
+import { PortableText } from "emdash/ui";
+import Base from "../layouts/Base.astro";
+
+const { entry: aboutPage } = await getEmDashEntry("pages", "about");
+const { entries: experience } = await getEmDashCollection("experience", { orderBy: { created_at: "desc" } });
+
+function formatDate(d?: string | null) {
+	if (!d) return "";
+	const date = new Date(d);
+	if (isNaN(date.getTime())) return d;
+	return date.toLocaleDateString("en-US", { year: "numeric", month: "short" });
+}
+---
+
+<Base
+	title="About"
+	description="About Eryandhi Putro Nugroho — software engineer from Ponorogo, Indonesia. Fullstack .NET, IoT, and computer vision."
+>
+	<div class="container-narrow about-page">
+		{/* Header */}
+		<header class="about-header">
+			<div class="about-avatar">EP</div>
+			<div>
+				<h1 class="about-name">Eryandhi Putro Nugroho</h1>
+				<p class="about-role">Software Engineer — Fullstack .NET · IoT · Computer Vision</p>
+				<p class="about-location">Ponorogo, Indonesia</p>
+			</div>
+		</header>
+
+		{/* Bio from CMS page content */}
+		{aboutPage?.data?.content && (
+			<div class="prose about-prose">
+				<PortableText value={aboutPage.data.content} />
+			</div>
+		)}
+
+		{/* CV Section */}
+		<section class="cv-section" id="cv">
+			<div class="cv-card">
+				<div class="cv-icon">📄</div>
+				<div class="cv-info">
+					<h2 class="cv-title">Curriculum Vitae</h2>
+					<p class="cv-desc">Download the latest CV (PDF) — full work history, education, and skills.</p>
+				</div>
+				<a href="/cv.pdf" class="btn btn-primary" download>Download PDF ↓</a>
+			</div>
+		</section>
+
+		{/* Full experience */}
+		{experience.length > 0 && (
+			<section class="about-experience">
+				<h2 class="about-section-title">Full Experience</h2>
+				<div class="about-timeline">
+					{experience.map((job) => (
+						<div class="about-job">
+							<div class="about-job-header">
+								<h3 class="about-job-role">{job.data.role}</h3>
+								{job.data.is_current && <span class="badge badge-current">current</span>}
+							</div>
+							<div class="about-job-company">{job.data.company}</div>
+							<div class="about-job-dates">
+								{formatDate(job.data.start_date)} — {job.data.is_current ? "Present" : formatDate(job.data.end_date)}
+							</div>
+							{job.data.description && (
+								<p class="about-job-desc">{job.data.description}</p>
+							)}
+						</div>
+					))}
+				</div>
+			</section>
+		)}
+
+		{/* Contact */}
+		<section class="about-contact">
+			<h2 class="about-section-title">Get in touch</h2>
+			<div class="contact-links">
+				<a href="https://github.com/epn-andy" target="_blank" rel="noopener noreferrer" class="contact-card">
+					<span class="contact-label">GitHub</span>
+					<span class="contact-value">@epn-andy</span>
+				</a>
+				<a href="https://linkedin.com/in/eryandhi" target="_blank" rel="noopener noreferrer" class="contact-card">
+					<span class="contact-label">LinkedIn</span>
+					<span class="contact-value">in/eryandhi</span>
+				</a>
+			</div>
+		</section>
+	</div>
+</Base>
+
+<style>
+	.about-page {
+		padding: var(--spacing-16) 0 var(--spacing-20);
+	}
+
+	.about-header {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-6);
+		margin-bottom: var(--spacing-10);
+	}
+
+	.about-avatar {
+		width: 96px;
+		height: 96px;
+		border-radius: 50%;
+		background: linear-gradient(135deg, var(--color-brand), #2563eb);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		font-family: var(--font-sans);
+		font-size: 2rem;
+		font-weight: 800;
+		flex-shrink: 0;
+	}
+
+	.about-name {
+		font-family: var(--font-sans);
+		font-size: clamp(1.75rem, 4vw, 2.25rem);
+		font-weight: 800;
+		letter-spacing: var(--tracking-tight);
+		color: var(--color-text);
+		line-height: 1.15;
+	}
+
+	.about-role {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		color: var(--color-text-secondary);
+		margin-top: var(--spacing-1);
+	}
+
+	.about-location {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		color: var(--color-muted);
+		margin-top: var(--spacing-1);
+	}
+
+	.about-prose {
+		margin-bottom: var(--spacing-12);
+	}
+
+	/* CV card */
+	.cv-section {
+		margin-bottom: var(--spacing-12);
+	}
+
+	.cv-card {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-4);
+		padding: var(--spacing-6);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-lg);
+		background: var(--color-bg-subtle);
+		flex-wrap: wrap;
+	}
+
+	.cv-icon {
+		font-size: 1.75rem;
+	}
+
+	.cv-info {
+		flex: 1;
+		min-width: 200px;
+	}
+
+	.cv-title {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		font-weight: 700;
+		color: var(--color-text);
+	}
+
+	.cv-desc {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: var(--color-text-secondary);
+	}
+
+	/* Experience */
+	.about-section-title {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xl);
+		font-weight: 700;
+		color: var(--color-text);
+		margin-bottom: var(--spacing-6);
+		padding-bottom: var(--spacing-2);
+		border-bottom: 1px solid var(--color-border-subtle);
+	}
+
+	.about-timeline {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-6);
+		margin-bottom: var(--spacing-12);
+	}
+
+	.about-job {
+		padding-left: var(--spacing-4);
+		border-left: 2px solid var(--color-border-subtle);
+	}
+
+	.about-job-header {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-2);
+		flex-wrap: wrap;
+	}
+
+	.about-job-role {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		font-weight: 700;
+		color: var(--color-text);
+	}
+
+	.about-job-company {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm);
+		color: var(--color-brand);
+		margin-top: 2px;
+	}
+
+	.about-job-dates {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-xs);
+		color: var(--color-muted);
+		margin-top: 2px;
+	}
+
+	.about-job-desc {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: var(--color-text-secondary);
+		line-height: var(--leading-relaxed);
+		margin-top: var(--spacing-2);
+	}
+
+	.badge-current {
+		background: rgba(16, 185, 129, 0.1);
+		color: #10b981;
+		border-color: rgba(16, 185, 129, 0.3);
+		font-size: 10px;
+		padding: 1px 6px;
+	}
+
+	/* Contact */
+	.contact-links {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacing-4);
+	}
+
+	.contact-card {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-1);
+		padding: var(--spacing-5);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-lg);
+		transition: all var(--transition-fast);
+	}
+
+	.contact-card:hover {
+		border-color: var(--color-text);
+		background: var(--color-bg-subtle);
+	}
+
+	.contact-label {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: var(--tracking-wide);
+		color: var(--color-muted);
+	}
+
+	.contact-value {
+		font-family: var(--font-mono);
+		font-size: var(--font-size-sm);
+		color: var(--color-brand);
+	}
+
+	@media (max-width: 600px) {
+		.about-header {
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.contact-links {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
