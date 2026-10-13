@@ -27,7 +27,12 @@ jobs:
         run: npm install --no-audit --no-fund
 
       - name: Build Astro site
-        run: npm run build
+        run: |
+          npm run build || {
+            echo "First build attempt failed (possibly transient font fetch). Retrying in 15s..."
+            sleep 15
+            npm run build
+          }
         env:
           EMDASH_SITE_URL: "https://nayreisme.dev"
           NODE_ENV: "production"
