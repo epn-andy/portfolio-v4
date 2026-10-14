@@ -9,6 +9,9 @@ export default defineConfig({
 	adapter: node({
 		mode: "standalone",
 	}),
+	session: {
+		driver: "memory",
+	},
 	server: {
 		host: "127.0.0.1",
 		port: 4321,
